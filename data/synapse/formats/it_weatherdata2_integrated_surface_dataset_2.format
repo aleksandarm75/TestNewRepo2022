@@ -1,0 +1,5 @@
+CREATE EXTERNAL FILE FORMAT it_weatherdata2_integrated_surface_dataset_2
+WITH (  
+        FORMAT_TYPE = PARQUET,
+        DATA_COMPRESSION ='org.apache.hadoop.io.compress.SnappyCodec'
+);
