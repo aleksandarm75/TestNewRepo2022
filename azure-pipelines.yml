@@ -33,17 +33,18 @@ extends:
   parameters:
       ## Mandatory for ddx-synapse objects (inside synapse folder)
       # Server-name of SQL Server in Azure where synapse resides
-      servername: ''
+      servername: 'Server1'
       # Name of the dedicated sql pool for synapse in Azure
-      database: ''
+      database: 'DB1'
       # Port from where db is listening
-      port: ''
+      port: '9443'
 
       ## Mandatory
       # Immuta Bearer API Key name stored in keyvault 
-      immutaApiBearerKey: ''
+      immutaApiBearerKey: 'gte_432aszjKZkY6Bjv5cJ5bt5FbXlP16me0I'
 
       ## Mandatory
       # DataProduct Info
-      datahub: 'xxxxxxxx'
-      region: 'xx'
+      datahub: 'TestNewRepo2022'
+      region: 'emea'
+

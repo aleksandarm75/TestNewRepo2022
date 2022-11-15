@@ -1,0 +1,34 @@
+CREATE EXTERNAL TABLE [it_weatherdata].[integrated_surface_dataset_1] (
+[usaf] [nvarchar](50) NULL,
+[wban] [nvarchar](50) NULL,
+[datetime] [datetime] NULL,
+[latitude] [float] NULL,
+[longitude] [float] NULL,
+[elevation] [float] NULL,
+[windAngle] [int] NULL,
+[windSpeed] [float] NULL,
+[temperature] [float] NULL,
+[seaLvlPressure] [float] NULL,
+[cloudCoverage] [nvarchar](50) NULL,
+[presentWeatherIndicator] [int] NULL,
+[pastWeatherIndicator] [int] NULL,
+[precipTime] [float] NULL,
+[precipDepth] [float] NULL,
+[snowDepth] [float] NULL,
+[stationName] [nvarchar](500) NULL,
+[countryOrRegion] [nvarchar](50) NULL,
+[p_k]  [nvarchar](50) NULL,
+[year] [int] NULL,
+[day] [int] NULL,
+[version] [float] NULL,
+[month] [int] NULL
+)
+WITH
+(
+    LOCATION='/noaa_isd_dummy/data'
+   DATA_SOURCE = reservoir_rsv0ddxextolloinsta0enbo
+   FILE_FORMAT = it_weatherdata_integrated_surface_dataset_1
+   REJECT_TYPE = VALUE
+   REJECT_VALUE = 0
+)
+;
