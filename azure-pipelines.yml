@@ -1,0 +1,49 @@
+# Repo: DDX/shared-libraries
+resources:
+  repositories:
+    - repository: shared-library
+      type: githubenterprise
+      endpoint: DDX_GitHubEnterprise    
+      name: DDX/shared-library
+      ref: master
+
+trigger:
+  batch: true
+  branches:
+    include:
+    - prod
+    - dev1
+    - dev2
+    - int
+  paths:
+    include:
+    - data/synapse/*
+    - data/adls/*
+    - data/storage/*
+    exclude:
+    - azure-pipelines.yml
+    - README.md
+    - doc/*
+    - data/*/README.md
+
+pr: none
+
+extends:
+  template: ddx-onboard/ddx.yml@shared-library  # Template reference
+  parameters:
+      ## Mandatory for ddx-synapse objects (inside synapse folder)
+      # Server-name of SQL Server in Azure where synapse resides
+      servername: ''
+      # Name of the dedicated sql pool for synapse in Azure
+      database: ''
+      # Port from where db is listening
+      port: ''
+
+      ## Mandatory
+      # Immuta Bearer API Key name stored in keyvault 
+      immutaApiBearerKey: ''
+
+      ## Mandatory
+      # DataProduct Info
+      datahub: 'xxxxxxxx'
+      region: 'xx'
